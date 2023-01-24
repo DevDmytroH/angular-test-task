@@ -1,0 +1,14 @@
+<div class="relative input-wrapper flex flex-col"
+     [class.error]="hasError"
+>
+  <mat-label class="text-lightSilver text-sm font-medium" *ngIf="label">{{label}}</mat-label>
+  <mat-form-field appearance="outline">
+    <mat-icon
+      matPrefix
+      *ngIf="icon"
+      [svgIcon]="icon"
+    ></mat-icon>
+    <input [disabled]="readonly" [type]="type" matInput [(ngModel)]="value" [placeholder]="placeholder">
+  </mat-form-field>
+  <mat-error *ngIf="hasError">{{error}}</mat-error>
+</div>

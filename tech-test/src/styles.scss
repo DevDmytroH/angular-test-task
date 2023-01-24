@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind utilities;
+
+@import './styles/normalize';
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: theme('colors.darkGray');
+  background: linear-gradient(180deg, #fbfbfb, rgba(149, 117, 205, .55));
+}
+
+.levitation-item {
+  transition: .2s ease-in;
+  box-shadow: 0 10px 30px -15px theme('colors.lightSilver');
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 13px 30px -10px theme('colors.lightSilver');
+  }
+}
+
+.default-modal-container {
+  .mat-dialog-container {
+    border-radius: theme('borderRadius.3xl');
+    width: 95vw;
+    max-width: 550px;
+  }
+}

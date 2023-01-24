@@ -1,0 +1,34 @@
+:host {
+  display: block;
+
+  .wrapper {
+    .button {
+      width: 100%;
+
+      padding: 12px 16px;
+      font-size: theme('fontSize.base[0]');
+      font-weight: theme('fontWeight.semiBold');
+      outline: none;
+      transition: .2s;
+      cursor: pointer;
+
+      &.outline {
+        background-color: transparent;
+        border: 2px solid theme('colors.primaryPurple');
+        color: theme('colors.primaryPurple');
+
+        &:hover {
+          background-color: theme('colors.primaryPurple');
+          color: theme('colors.white');
+          border-color: transparent;
+        }
+      }
+
+      &:disabled {
+        pointer-events: none;
+        opacity: .3;
+      }
+    }
+  }
+
+}

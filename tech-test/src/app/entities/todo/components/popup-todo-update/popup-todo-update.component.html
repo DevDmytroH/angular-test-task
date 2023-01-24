@@ -1,0 +1,38 @@
+<div class="wrapper py-2 px-3.5 lg:py-5 lg:px-6 font-medium">
+  <div class="flex items-center justify-between mb-6">
+    <h2 data-testing="popup-title" class="font-semiBold text-primaryPurple">{{ popupTitle }}</h2>
+    <mat-icon (click)="close()"
+              data-testing="close-btn"
+              class="close-icon text-primaryRed cursor-pointer"
+              svgIcon="ic-close"></mat-icon>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="updateForm" class="">
+    <div class="mb-4">
+      <app-input formControlName="label" [label]="'Task label'"
+                 [hasError]="updateForm.get('label').dirty && updateForm.get('label').invalid"
+                 [error]="updateForm.controls['label'].errors | inputValidationError"
+      ></app-input>
+    </div>
+    <div class="mb-4">
+      <app-input formControlName="description" [label]="'Task description'"
+                 [hasError]="updateForm.get('description').dirty && updateForm.get('description').invalid"
+                 [error]="updateForm.controls['description'].errors | inputValidationError"
+      ></app-input>
+    </div>
+    <div class="mb-6">
+      <app-input formControlName="category" [label]="'Task category'"
+                 [hasError]="updateForm.get('category').dirty && updateForm.get('category').invalid"
+                 [error]="updateForm.controls['category'].errors | inputValidationError"
+      ></app-input>
+    </div>
+
+    <app-button
+      data-testing="submit-btn"
+      class="max-w-xs mx-auto"
+      [content]="isUpdateMode ? 'Update': 'Create'"
+      [isDisabledButton]="updateForm.invalid"
+      [type]="'submit'"
+    ></app-button>
+  </form>
+</div>

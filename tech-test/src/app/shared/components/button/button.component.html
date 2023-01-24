@@ -1,0 +1,11 @@
+<div class="wrapper"
+>
+  <button
+    (click)="onClickBtn()"
+    [disabled]="isDisabledButton"
+    class="button outline rounded-2xl"
+    [type]="type"
+  >
+    <span class="text-center w-full">{{ content }}</span>
+  </button>
+</div>

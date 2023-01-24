@@ -1,0 +1,37 @@
+<div class="todo-wrapper pt-20">
+  <h1 class="max-w-xl mx-auto text-primaryPurple text-center mb-16">
+    Your assistant in tasks 📝
+  </h1>
+
+  <div class="list-wrapper mx-auto max-w-4xl sm:max-w-2xl max-w-sm px-6">
+    <app-input
+      class="mb-10"
+      [placeholder]="'e.g.: Kitchen Clea...'"
+      [label]="'Search task by label'"
+      [formControl]="searchBarControl"
+    ></app-input>
+
+    <app-create-todo
+      class="mb-10 block"
+      (createTodoItem)="createNewTodo()"
+    ></app-create-todo>
+
+    <ng-container
+      *ngIf="filteredTasks$ && ((filteredTasks$ | async ) ?? []).length > 0 || !searchBarControl.value;else noTodos"
+    >
+      <ng-container *ngIf="(tasks$ | async) as tasks">
+        <app-todo-item
+          class="mb-5 block"
+          *ngFor="let task of tasks | filter : searchBarControl.value : ['todo', 'label']"
+          [todo]="task.todo"
+          [itemMenu]="task.actions"
+        ></app-todo-item>
+      </ng-container>
+    </ng-container>
+    <ng-template #noTodos>
+      <div class="text-primaryRed text-center">
+        <h2>Todos not found 😕</h2>
+      </div>
+    </ng-template>
+  </div>
+</div>

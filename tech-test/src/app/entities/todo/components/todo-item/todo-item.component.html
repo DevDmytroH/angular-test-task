@@ -1,0 +1,21 @@
+<div class="levitation-item bg-white wrapper ease-in duration-300 p-4 border-primaryPurple border-solid hover:border-secondaryPurple border rounded-2xl">
+  <div class="flex items-center justify-between">
+    <h3 data-testing="todo-title" class="font-lg mb-3 font-medium">{{todo.label}}</h3>
+    <app-options-menu [items]="itemMenu" class="ml-4"></app-options-menu>
+  </div>
+
+  <app-todo-label
+    icon="ic-category"
+    [label]="todo.category | titlecase"
+  ></app-todo-label>
+
+  <app-todo-label
+    [icon]="todo.done ? 'ic-done' : 'ic-not-done'"
+    [ngClass]="todo.done ? 'text-primaryGreen': 'text-primaryRed'"
+    [label]="todo.done | defineCompletion | titlecase"
+  ></app-todo-label>
+
+  <div class="style-line my-4 w-full h-px bg-primaryPurple rounded-full max-w-33"></div>
+
+  <p data-testing="todo-description" class="font-regular">{{todo.description}}</p>
+</div>
