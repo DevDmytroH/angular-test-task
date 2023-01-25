@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { logger } from 'codelyzer/util/logger';
-import { combineLatest, of, Subject } from 'rxjs';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, skip, startWith, switchMap, take, takeUntil, tap, withLatestFrom } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { filter, map, take, takeUntil, withLatestFrom } from 'rxjs/operators';
 import { IOptionsMenuItem } from '../../shared/components/options-menu/interfaces/options-menu-item.interface';
 import { FilterPipe } from '../../shared/pipes/filter.pipe';
 import { PopupTodoUpdateComponent } from './components/popup-todo-update/popup-todo-update.component';

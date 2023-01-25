@@ -10,20 +10,14 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="updateForm" class="">
     <div class="mb-4">
       <app-input formControlName="label" [label]="'Task label'"
-                 [hasError]="updateForm.get('label').dirty && updateForm.get('label').invalid"
-                 [error]="updateForm.controls['label'].errors | inputValidationError"
       ></app-input>
     </div>
     <div class="mb-4">
       <app-input formControlName="description" [label]="'Task description'"
-                 [hasError]="updateForm.get('description').dirty && updateForm.get('description').invalid"
-                 [error]="updateForm.controls['description'].errors | inputValidationError"
       ></app-input>
     </div>
     <div class="mb-6">
       <app-input formControlName="category" [label]="'Task category'"
-                 [hasError]="updateForm.get('category').dirty && updateForm.get('category').invalid"
-                 [error]="updateForm.controls['category'].errors | inputValidationError"
       ></app-input>
     </div>
 

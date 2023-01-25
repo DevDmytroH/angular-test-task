@@ -8,7 +8,14 @@
       *ngIf="icon"
       [svgIcon]="icon"
     ></mat-icon>
-    <input [disabled]="readonly" [type]="type" matInput [(ngModel)]="value" [placeholder]="placeholder">
+    <input
+      [disabled]="disabled"
+      [type]="type"
+      matInput
+      #input
+      [(ngModel)]="value"
+      (keyup)="setValue(input.value)"
+      [placeholder]="placeholder">
   </mat-form-field>
   <mat-error *ngIf="hasError">{{error}}</mat-error>
 </div>
